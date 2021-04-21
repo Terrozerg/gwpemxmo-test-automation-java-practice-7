@@ -9,8 +9,8 @@ import java.math.BigDecimal;
  */
 
 public abstract class Deposit {
-    private BigDecimal amount;
-    private int period;
+    public final BigDecimal amount;
+    public final int period;
 
     public Deposit(BigDecimal amount, int period){
         this.amount = amount;
