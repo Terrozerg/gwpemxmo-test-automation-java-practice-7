@@ -54,8 +54,8 @@ public class ClientTest {
     }
 
     @Test
-    public void testGetIncomeByZeroNumber(){
-        Assert.assertEquals(client.getIncomeByNumber(0), BigDecimal.ZERO);
+    public void testGetIncomeByOutOfBoundsNumber(){
+        Assert.assertEquals(client.getIncomeByNumber(-1), BigDecimal.ZERO);
     }
 
     @Test

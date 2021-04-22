@@ -1,6 +1,8 @@
 package com.epam.test.automation.java.practice7;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +44,8 @@ public class Client {
     public BigDecimal totalIncome(){
         return deposits.stream()
                 .map(Deposit::income)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+                .reduce(BigDecimal.ZERO,
+                        (item,increment)-> item.add(increment, MathContext.DECIMAL32));
     }
 
     public BigDecimal maxIncome(){
