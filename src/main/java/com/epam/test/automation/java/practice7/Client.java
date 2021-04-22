@@ -45,7 +45,9 @@ public class Client {
         return deposits.stream()
                 .map(Deposit::income)
                 .reduce(BigDecimal.ZERO,
-                        (item,increment)-> item.add(increment, MathContext.DECIMAL32));
+                        (item,increment)->
+                                item.add(increment,
+                                        new MathContext(7, RoundingMode.HALF_UP)));
     }
 
     public BigDecimal maxIncome(){

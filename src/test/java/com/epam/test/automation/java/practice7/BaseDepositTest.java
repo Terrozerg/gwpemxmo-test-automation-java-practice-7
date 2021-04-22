@@ -9,8 +9,8 @@ public class BaseDepositTest {
 
     @Test
     public void testIncome(){
-        Deposit deposit = new BaseDeposit(BigDecimal.valueOf(1000), 3);
+        Deposit deposit = new BaseDeposit(BigDecimal.valueOf(3000), 6);
 
-        Assert.assertEquals(deposit.income(), BigDecimal.valueOf(157.62));
+        Assert.assertEquals(deposit.income(), BigDecimal.valueOf(1020.29));
     }
 }

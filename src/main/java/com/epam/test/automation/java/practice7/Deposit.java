@@ -26,7 +26,7 @@ public abstract class Deposit {
         for (int i = periodStart; i < periodEnd; i++) {
             BigDecimal addition = result
                     .multiply(BigDecimal.valueOf(percent))
-                    .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_EVEN);
+                    .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
 
             result = result.add(addition);
 
