@@ -11,9 +11,8 @@ public class LongDepositTest {
     @Test
     public void testIncomeBeforeSixMonth(){
         deposit = new LongDeposit(BigDecimal.valueOf(1500), 5);
-        BigDecimal expected = new BigDecimal("0.00");
 
-        Assert.assertEquals(deposit.income(), expected);
+        Assert.assertEquals(deposit.income(), BigDecimal.ZERO);
     }
 
     @Test
