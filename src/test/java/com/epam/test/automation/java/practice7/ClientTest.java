@@ -50,7 +50,7 @@ public class ClientTest {
 
     @Test
     public void testGetIncomeByNumber(){
-        Assert.assertEquals(client.getIncomeByNumber(4), deposits.get(3).income());
+        Assert.assertEquals(client.getIncomeByNumber(4), deposits.get(4).income());
     }
 
     @Test

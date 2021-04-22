@@ -54,7 +54,7 @@ public class Client {
 
     public BigDecimal getIncomeByNumber(int number){
         try {
-            return deposits.get(number - 1).income();
+            return deposits.get(number).income();
         }catch (IndexOutOfBoundsException e){
             return BigDecimal.ZERO;
         }

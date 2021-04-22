@@ -1,7 +1,6 @@
 package com.epam.test.automation.java.practice7;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 /**
  * <summary>
