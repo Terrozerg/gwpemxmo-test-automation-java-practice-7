@@ -32,6 +32,23 @@ public class ClientTest {
     }
 
     @Test
+    public void testAddDeposit(){
+        Client addClient = new Client();
+
+        Assert.assertTrue(addClient.addDeposit(deposits.get(1)));
+    }
+
+    @Test
+    public void testAddDepositToFullClient(){
+        Client addClient = new Client();
+        for (int i = 0; i < 10; i++) {
+            addClient.addDeposit(new BaseDeposit(BigDecimal.valueOf(1500), 8));
+        }
+
+        Assert.assertFalse(addClient.addDeposit(deposits.get(1)));
+    }
+
+    @Test
     public void testGetIncomeByNumber(){
         Assert.assertEquals(client.getIncomeByNumber(4), deposits.get(3).income());
     }

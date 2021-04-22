@@ -12,9 +12,11 @@ import java.util.List;
 
 public class Client {
     private List<Deposit> deposits;
+    private int size;
 
     public Client() {
         this.deposits = new ArrayList<>(10);
+        this.size = 10;
     }
 
     public Client(List<Deposit> deposits){
@@ -22,13 +24,19 @@ public class Client {
             throw new IllegalArgumentException("Cannot create array of null deposits.");
         }
         this.deposits = deposits;
+        this.size = deposits.size();
     }
 
-    public void addDeposit(Deposit deposit){
+    public boolean addDeposit(Deposit deposit){
         if(deposit == null){
             throw new IllegalArgumentException("Cannot add null deposit.");
         }
+        if(deposits.size() == this.size){
+            return false;
+        }
         deposits.add(deposit);
+
+        return true;
     }
 
     public BigDecimal totalIncome(){
