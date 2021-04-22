@@ -1,6 +1,7 @@
 package com.epam.test.automation.java.practice7;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 
 /**
@@ -22,18 +23,19 @@ public abstract class Deposit {
 
     public BigDecimal incomeBase(BigDecimal amount, int periodStart, int periodEnd, int percent, int increment){
         BigDecimal result = amount;
+        BigDecimal addition;
 
         for (int i = periodStart; i < periodEnd; i++) {
-            BigDecimal addition = result
+            addition = result
                     .multiply(BigDecimal.valueOf(percent))
-                    .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
+                    .divide(BigDecimal.valueOf(100), MathContext.DECIMAL64);
 
             result = result.add(addition);
 
             percent+=increment;
         }
 
-        return result.subtract(amount);
+        return result.subtract(amount).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     public BigDecimal getAmount() {
