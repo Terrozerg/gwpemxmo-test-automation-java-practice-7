@@ -10,7 +10,7 @@ import java.math.RoundingMode;
  */
 
 public class BaseDeposit extends Deposit {
-    private final static int INCOME_PERCENT = 5;
+    private static final int INCOME_PERCENT = 5;
 
     public BaseDeposit(BigDecimal amount, int period) {
         super(amount, period);
@@ -19,18 +19,9 @@ public class BaseDeposit extends Deposit {
     @Override
     public BigDecimal income() {
         BigDecimal amount = new BigDecimal(String.valueOf(this.getAmount()));
-        BigDecimal result = amount;
         int period = this.getPeriod();
 
-        for (int i = 0; i < period; i++) {
-            BigDecimal addition = result
-                    .multiply(BigDecimal.valueOf(INCOME_PERCENT))
-                    .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_EVEN);
-
-            result = result.add(addition);
-        }
-
-        return result.subtract(amount);
+        return super.incomeBase(amount, 0, period, INCOME_PERCENT, 0);
     }
 }
 

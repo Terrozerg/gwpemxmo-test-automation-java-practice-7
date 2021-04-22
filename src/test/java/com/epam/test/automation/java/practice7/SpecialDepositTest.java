@@ -10,7 +10,7 @@ public class SpecialDepositTest {
     @Test
     public void testIncome(){
         Deposit deposit = new SpecialDeposit(BigDecimal.valueOf(1000), 2);
-        BigDecimal expected = new BigDecimal("60.80");
+        BigDecimal expected = new BigDecimal("30.20");
 
         Assert.assertEquals(deposit.income(), expected);
     }
